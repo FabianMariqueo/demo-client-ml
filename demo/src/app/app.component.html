@@ -1,21 +1,100 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
+<div class="container">
+
+  <div class="row justify-content-center">
+    <div class="col col-md-4">
+      <h1>Demo Wine Quality</h1>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <form class="section row" #form="ngForm" (ngSubmit)="onSubmit()">
+
+      <div class="col col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Fixed Acidity" [(ngModel)]="features.fixed_acidity" name="fixed_acidity">
+        </mat-form-field>
+        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
+      </div>
+
+      <div class="col col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Volatile Acidity" [(ngModel)]="features.volatile_acidity" name="volatile_acidity">
+        </mat-form-field>
+        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
+      </div>
+
+      <div class="col col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Citric Acid" [(ngModel)] = "features.citric_acid" name="citric_acid">
+        </mat-form-field>
+        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
+      </div>
+
+      <div class="col col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Residual Sugar" [(ngModel)]="features.residual_sugar" name="residual_sugar">
+        </mat-form-field>
+        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
+      </div>
+
+      <div class="col col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Chlorides" [(ngModel)]="features.chlorides" name="chlorides">
+        </mat-form-field>
+        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
+      </div>
+
+      <div class="col col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Free Sulfur Dioxide" [(ngModel)]="features.free_sulfur_dioxide" name="free_sulfur_dioxide">
+        </mat-form-field>
+        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
+      </div>
+
+      <div class="col col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Total Sulfur Dioxide" [(ngModel)]="features.total_sulfur_dioxide" name="total_sulfur_dioxide">
+        </mat-form-field>
+        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
+      </div>
+
+      <div class="col col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Density" [(ngModel)]="features.density" name="density">
+        </mat-form-field>
+        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
+      </div>
+
+      <div class="col col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="pH" [(ngModel)]="features.pH" name="pH">
+        </mat-form-field>
+        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
+      </div>
+
+      <div class="col col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Sulphates" [(ngModel)]="features.sulphates" name="sulphates">
+        </mat-form-field>
+        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
+      </div>
+
+      <div class="col col-md-3">
+        <mat-form-field>
+          <input matInput placeholder="Alcohol" [(ngModel)]="features.alcohol" name="alcohol">
+        </mat-form-field>
+        <mat-slider thumbLabel [displayWith]="formatLabel" tickInterval="1000" min="1" max="100000"></mat-slider>
+      </div>
+
+      <div class="col-sm-12 col-md-3 offset-sm-0 offset-md-6" *ngIf="!enviando">
+        <button class="w-100" type="submit" mat-raised-button color="primary">Enviar</button>
+      </div>
+
+    </form>
+
+  </div>
+
 </div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
 
 <router-outlet></router-outlet>

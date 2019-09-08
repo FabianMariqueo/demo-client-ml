@@ -1,4 +1,4 @@
-export interface WineQuality {
+export class WineQuality {
 
     fixed_acidity: number;
     volatile_acidity: number;
@@ -12,4 +12,6 @@ export interface WineQuality {
     sulphates: number;
     alcohol: number;
     quality: number;
+    
+    public constructor(){}
 }
