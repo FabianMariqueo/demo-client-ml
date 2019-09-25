@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { WineQuality } from './models/wine-quality';
+import { MlflowService } from './services/mlflow.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ResponseModalComponent } from './components/response-modal/response-modal.component';
 
 @Component({
   selector: 'app-root',
@@ -11,22 +14,40 @@ export class AppComponent {
 
   public features: WineQuality = new WineQuality();
 
-  public constructor() {
+  public constructor(
+    private mlflowService: MlflowService,
+    private dialog: MatDialog
+  ) {
   }
 
-  public formatLabel(value: number | null) {
-    if (!value) {
-      return 0;
-    }
-
-    if (value >= 1000) {
-      return Math.round(value / 1000) + 'k';
-    }
-
-    return value;
-  }
 
   public onSubmit() {
-    console.log(this.features);
+    let data = {
+      data: [[
+        this.features.fixed_acidity,
+        this.features.volatile_acidity,
+        this.features.citric_acid,
+        this.features.residual_sugar,
+        this.features.chlorides,
+        this.features.free_sulfur_dioxide,
+        this.features.total_sulfur_dioxide,
+        this.features.density,
+        this.features.pH,
+        this.features.sulphates,
+        this.features.alcohol
+      ]]
+    }
+
+    this.mlflowService.predict(data).subscribe(
+      Response => {
+        console.log(Response);
+        this.dialog.open(ResponseModalComponent, {
+          width: '250px',
+          data: Response
+        });
+      }
+    );
+
+
   }
 }

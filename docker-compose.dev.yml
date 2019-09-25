@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  demo:
+    build:
+      context: ./demo
+      dockerfile: dev.dockerfile
+    container_name: DEV-demo-ml
+    ports: 
+      - "4201:4200"
+    volumes: 
+      - type: bind
+        source: ./demo
+        target: /app
+      - type: volume
+        source: dev_demo_volume
+        target: /app/node_modules
+    networks: 
+      - dev-demo-network
+
+networks: 
+  dev-demo-network:
+
+volumes:
+  dev_demo_volume:
+  

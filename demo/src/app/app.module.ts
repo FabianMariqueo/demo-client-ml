@@ -9,10 +9,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSliderModule } from '@angular/material/slider';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { ResponseModalComponent } from './components/response-modal/response-modal.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ResponseModalComponent
   ],
   imports: [
     BrowserModule,
@@ -22,10 +26,16 @@ import { MatButtonModule } from '@angular/material/button';
     MatInputModule,
     MatSliderModule,
     FormsModule,
-    MatButtonModule
+    MatButtonModule,
+    HttpClientModule,
+    MatDialogModule
 
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: [
+    ResponseModalComponent
+  ]
 })
 export class AppModule { }
