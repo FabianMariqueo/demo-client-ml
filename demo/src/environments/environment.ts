@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  api: 'http://anapa.ceisufro.cl:1234/'
+  api: 'http://anapa.ceisufro.cl:8090/'
 };
 
 /*
